@@ -1,12 +1,9 @@
+// src/components/Buttons/Button.stories.tsx
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from './';
+import {fn} from 'storybook/test'
 
-import { fn } from 'storybook/test';
-
-import { Button } from '../../../dist/esm';
-// import { Button } from './';
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Example/Button',
   component: Button,
@@ -24,41 +21,83 @@ const meta = {
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export default meta;
+type Story = StoryObj<typeof Button>;
+
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
-  },
-  render: function Render(args) {
- 
-    function onClick() {
-      alert('Button clicked');
-    }
-
-    return <Button {...args} label='yuoaj' onClick={onClick} />;
+    label: 'Primary',
+    variant: 'primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    label: 'Secondary',
+    variant: 'secondary',
   },
 };
 
-export const Large: Story = {
+export const Tertiary: Story = {
   args: {
-    size: 'lg',
-    label: 'Button',
+    label: 'Tertiary',
+    variant: 'tertiary',
+  },
+};
+
+export const Outlined: Story = {
+  args: {
+    label: 'Outlined',
+    variant: 'primary',
+    outlined: true,
+  },
+};
+
+export const Elevated: Story = {
+  args: {
+    label: 'Elevated',
+    variant: 'primary',
+    elevated: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    label: 'Disabled',
+    variant: 'primary',
+    disabled: true,
   },
 };
 
 export const Small: Story = {
   args: {
+    label: 'Small',
     size: 'sm',
-    label: 'Button',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    label: 'Medium',
+    size: 'md',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    label: 'Large',
+    size: 'lg',
+  },
+};
+
+export const Combined: Story = {
+  args: {
+    label: 'Combo',
+    variant: 'secondary',
+    size: 'lg',
+    outlined: true,
+    elevated: true,
+    onClick: () => alert('Combo clicked'),
   },
 };
