@@ -1,18 +1,22 @@
 import * as React from 'react';
 
-type HomeIconProps = {
+type NotificationIconProps = {
     size?: number | string;
     color?: string;
     strokeWidth?: number;
+    showBadge?: boolean;
+    badgeColor?: string;
     variant?: 'outlined' | 'filled';
 };
 
-export function HomeIcon({
+export function NotificationIcon({
     size = 24,
     color = "#4A90E2",
     strokeWidth = 2,
+    showBadge = false,
+    badgeColor = "#FF4C4C",
     variant = 'outlined',
-}: HomeIconProps) {
+}: NotificationIconProps) {
     return (
         <svg 
             width={size}
@@ -23,15 +27,16 @@ export function HomeIcon({
         >
             {variant === 'outlined' ? (
                 <>
-                    <path 
-                        d="M3 10L12 2L21 10V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V10Z"
+                    {/* Outlined Bell */}
+                    <path
+                        d="M18 8C18 5.23858 15.7614 3 13 3H11C8.23858 3 6 5.23858 6 8V14L4 16V17H20V16L18 14V8Z"
                         stroke={color}
                         strokeWidth={strokeWidth}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                     />
-                    <path 
-                        d="M9 21V14H15V21"
+                    <path
+                        d="M12 21C13.1046 21 14 20.1046 14 19H10C10 20.1046 10.8954 21 12 21Z"
                         stroke={color}
                         strokeWidth={strokeWidth}
                         strokeLinecap="round"
@@ -40,15 +45,26 @@ export function HomeIcon({
                 </>
             ) : (
                 <>
-                    <path 
-                        d="M3 10L12 2L21 10V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V10Z"
+                    {/* Filled Bell */}
+                    <path
+                        d="M18 8C18 5.23858 15.7614 3 13 3H11C8.23858 3 6 5.23858 6 8V14L4 16V17H20V16L18 14V8Z"
                         fill={color}
                     />
-                    <path 
-                        d="M9 21V14H15V21"
+                    <path
+                        d="M12 21C13.1046 21 14 20.1046 14 19H10C10 20.1046 10.8954 21 12 21Z"
                         fill={color}
                     />
                 </>
+            )}
+
+            {/* Badge dot */}
+            {showBadge && (
+                <circle
+                    cx="18"
+                    cy="6"
+                    r="3"
+                    fill={badgeColor}
+                />
             )}
         </svg>
     );

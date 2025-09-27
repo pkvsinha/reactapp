@@ -1,18 +1,18 @@
 import * as React from 'react';
 
-type HomeIconProps = {
+type AccountIconProps = {
     size?: number | string;
     color?: string;
     strokeWidth?: number;
     variant?: 'outlined' | 'filled';
 };
 
-export function HomeIcon({
+export function AccountIcon({
     size = 24,
     color = "#4A90E2",
     strokeWidth = 2,
     variant = 'outlined',
-}: HomeIconProps) {
+}: AccountIconProps) {
     return (
         <svg 
             width={size}
@@ -23,29 +23,37 @@ export function HomeIcon({
         >
             {variant === 'outlined' ? (
                 <>
-                    <path 
-                        d="M3 10L12 2L21 10V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V10Z"
+                    {/* Head */}
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="4"
                         stroke={color}
                         strokeWidth={strokeWidth}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        fill="none"
                     />
-                    <path 
-                        d="M9 21V14H15V21"
+                    {/* Body */}
+                    <path
+                        d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20"
                         stroke={color}
                         strokeWidth={strokeWidth}
+                        fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                     />
                 </>
             ) : (
                 <>
-                    <path 
-                        d="M3 10L12 2L21 10V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V10Z"
+                    {/* Filled Head */}
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="4"
                         fill={color}
                     />
-                    <path 
-                        d="M9 21V14H15V21"
+                    {/* Filled Body */}
+                    <path
+                        d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20"
                         fill={color}
                     />
                 </>
